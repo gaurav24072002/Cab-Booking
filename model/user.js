@@ -9,16 +9,25 @@ const userSchema=new mongoose.Schema({
     },
     source:{
         type:String,
-        required:true
+        required:true,
+        trim:true
     },
     destination:{
         type:String,
-        required: true
+        required: true,
+        trim:true
     },
     car:{
-        type: Number,
-        required: true
+        type: String,
+        required: true,
+        trim:true
     },
+    time:{
+        type: Number
+    },
+    price:{
+        type: Number
+    }
 })
 
 module.exports=mongoose.model('user',userSchema)
