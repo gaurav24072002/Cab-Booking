@@ -4,7 +4,6 @@ import ShortestPath from './Path';
 import carGraph from './graphh.png';
 
 
-
 function App() {
 
   const graph = {
@@ -23,13 +22,13 @@ function App() {
 
   function onSelect(i){
     let rate;
-    if(i == 0){
+    if(i === 0){
       rate = 10;
-    }else if(i == 1){
+    }else if(i === 1){
       rate = 20;
-    }else if(i == 2){
+    }else if(i === 2){
       rate = 30;
-    }else if(i = 3){
+    }else if(i === 3){
       rate = 40;
     }else{
       rate = 50;
@@ -83,7 +82,7 @@ function App() {
       </form>
       </div>
 
-      <ShortestPath graph={graph} src={src} dest={dest} car={car}/>
+      <ShortestPath graph={graph} src={src} dest={dest} car={car} email={email}/>
     </div>
     </div>
   );

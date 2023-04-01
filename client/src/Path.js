@@ -1,7 +1,10 @@
-import React, { useEffect, useState } from 'react'
+import React, {useState } from 'react'
+import axios from 'axios';
+import './App.css';
 
-const Path = ({ graph, src, dest, car }) => {
+const Path = ({ graph, src, dest, car, email}) => {
   const [call, setCall] = useState()
+  const [booked, setBooked] = useState([false, false, false, false, false]);
  
   function calculation(graph, source, destination) {
     // Initialize distances to all nodes as Infinity except the source, which is 0
@@ -71,15 +74,58 @@ const Path = ({ graph, src, dest, car }) => {
     setCall(calculation(graph,src,dest));
   }
 
+  const handleBook = (email, src, dest, car) => {
+    const index = (car/10 - 1);
 
+    var cr = "";
+    if(car === 10){
+      cr = "Micro";
+    }else if(car === 20){
+      cr = "Mini";
+    }else if(car === 30){
+      cr = "Sedan";
+    }else if(car === 40){
+      cr = "Sedan Prime";
+    }else{
+      cr = "SUV";
+    }
+
+    if(booked[index] === true){
+      alert(`Sory The Current Ride ${cr} is Booked. Select Any other Ride..`)
+      return;
+    }
+
+    let data ={
+      email:email,
+      source:src,
+      destination:dest,
+      car:cr,
+      time:call?.distance,
+      price:call?.distance*car
+    }
+    axios.post('http://localhost:5000/', data)
+    .then(resp=>{
+      if(resp){
+        console.log(resp)
+        const newBooked = [...booked]
+        newBooked[index] = true;
+        setBooked(newBooked);
+        alert("Successfully Booked", resp);
+      }else{
+        alert("Something went wrong")
+      }
+    })
+    .catch(err=>console.log(err))
+    
+  }
 
   return (
     <div>
-      <button onClick={() => handleSubmit(graph, src, dest)} >Submit</button>
-      <div>{call?.path}</div>
-      <div>{call?.distance}</div>
-      <div>{call?.distance*car}</div>
-      
+      <button id='submit' className='btn btn-primary' onClick={() => handleSubmit(graph, src, dest)} >Submit</button>
+      <div>Your Ride Path is as followes : {call?.path}</div>
+      <div>Your Minimum time Required is : {call?.distance} minuites</div>
+      <div>The Price for Your Ride will be : Rs.{call?.distance*car}</div>
+      <button id='submit' className='btn btn-success' onClick={() => handleBook(email, src, dest, car)} >Book Now</button>
     </div>
   )
 }
