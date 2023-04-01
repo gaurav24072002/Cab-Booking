@@ -10,6 +10,7 @@
   background-size: cover;
   animation: background-scroll 60s linear infinite;
 }
+
 @keyframes background-scroll {
   from {
     background-position: 0 0;
@@ -19,7 +20,7 @@
   }
 }
 
-.text{
+.text {
   font-family: 'Times New Roman', Times, serif;
 }
 
@@ -35,14 +36,20 @@
   max-width: 1200px;
   margin: 0 auto;
 }
-.form-container img {
 
+.form-container img {
   max-width: 50%;
   margin-right: 2rem;
 }
 
+.form-container img:hover {
+  transform: scale(1.1);
+}
+
 .form-container form {
   max-width: 70%;
+    border-style: dashed;
+    border-radius: 7px;
 }
 
 .form-control {
@@ -89,9 +96,6 @@ input[type="radio"] {
   color: #007bff;
 }
 
-#submit{
-  margin-top: 30px;
-}
 
 .App-logo {
   height: 40vmin;
@@ -117,6 +121,17 @@ input[type="radio"] {
 
 .App-link {
   color: #61dafb;
+}
+
+.Message{
+  margin: 7px 20px;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  font-size: large;
+}
+
+
+#submit {
+  margin-top: 10px;
 }
 
 @keyframes App-logo-spin {

@@ -1,10 +1,13 @@
 import React, {useState } from 'react'
 import axios from 'axios';
+import Modal from './Modal';
 import './App.css';
 
 const Path = ({ graph, src, dest, car, email}) => {
-  const [call, setCall] = useState()
+  const [call, setCall] = useState(null)
   const [booked, setBooked] = useState([false, false, false, false, false]);
+  const [msg, setMsg] = useState(null);
+  const [showModal, setShowModal] = useState(false);
  
   function calculation(graph, source, destination) {
     // Initialize distances to all nodes as Infinity except the source, which is 0
@@ -71,7 +74,24 @@ const Path = ({ graph, src, dest, car, email}) => {
 
 
   const handleSubmit = (graph, src, dest ) => {
+    if(call?.distance === 0 || call?.path === ''){
+      alert("Fill the form")
+      return;
+    }
     setCall(calculation(graph,src,dest));
+    const path = call?.path;
+    console.log(typeof(path))
+    const time = call?.distance;
+    console.log(typeof(time))
+    const price = call?.distance*car;
+    const message = (
+      <div className='Message' >
+        <div>Your Ride Path is as followes : {path}</div>
+        <div>Your Minimum time Required is : {time} minuites</div>
+        <div>The Price for Your Ride will be : Rs.{price}</div>
+      </div>
+    )
+    setMsg(message);
   }
 
   const handleBook = (email, src, dest, car) => {
@@ -91,7 +111,7 @@ const Path = ({ graph, src, dest, car, email}) => {
     }
 
     if(booked[index] === true){
-      alert(`Sory The Current Ride ${cr} is Booked. Select Any other Ride..`)
+      alert(`Sory The Current Ride ${cr} is Booked. Select Any other Ride.. Or wait for ${call?.distance} minuites for the Ride to get free`)
       return;
     }
 
@@ -106,11 +126,11 @@ const Path = ({ graph, src, dest, car, email}) => {
     axios.post('http://localhost:5000/', data)
     .then(resp=>{
       if(resp){
+        setShowModal(true);
         console.log(resp)
         const newBooked = [...booked]
         newBooked[index] = true;
         setBooked(newBooked);
-        alert("Successfully Booked", resp);
       }else{
         alert("Something went wrong")
       }
@@ -121,13 +141,18 @@ const Path = ({ graph, src, dest, car, email}) => {
 
   return (
     <div>
-      <button id='submit' className='btn btn-primary' onClick={() => handleSubmit(graph, src, dest)} >Submit</button>
-      <div>Your Ride Path is as followes : {call?.path}</div>
-      <div>Your Minimum time Required is : {call?.distance} minuites</div>
-      <div>The Price for Your Ride will be : Rs.{call?.distance*car}</div>
-      <button id='submit' className='btn btn-success' onClick={() => handleBook(email, src, dest, car)} >Book Now</button>
+      <button id='submit' className='btn btn-primary' onClick={() => handleSubmit(graph, src, dest)}>Submit</button>
+      {msg && (
+        <div>
+          {msg}
+          <button id='submit' className='btn btn-success' onClick={() => handleBook(email, src, dest, car)}>Book Now</button>
+          {showModal && (
+            <Modal call={call} src={src} dest={dest} car={car} showModal={showModal} setShowModal={setShowModal} ></Modal>
+          )}
+        </div>
+      )}
     </div>
-  )
+  );
 }
 
 export default Path

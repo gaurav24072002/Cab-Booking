@@ -7,12 +7,12 @@ import carGraph from './graphh.png';
 function App() {
 
   const graph = {
-    a: { b: 5, c: 7 },
-    b: { a: 5, d: 15, e: 20 },
-    c: { a: 7, d: 5, e: 35 },
-    d: { b: 15, c: 5, f: 20 },
-    e: { b: 20, c: 35, f: 10 },
-    f: { d: 20, e: 10 },
+    A: { B: 5, C: 7 },
+    B: { A: 5, D: 15, E: 20 },
+    C: { A: 7, D: 5, E: 35 },
+    D: { B: 15, C: 5, F: 20 },
+    E: { B: 20, C: 35, F: 10 },
+    F: { D: 20, E: 10 },
   };
 
   const [email, setemail] = useState('');
