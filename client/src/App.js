@@ -1,6 +1,9 @@
 import React, {useState} from 'react';
 import './App.css';
-import shortestPath from './shortestPath';
+import ShortestPath from './Path';
+import carGraph from './graphh.png';
+
+
 
 function App() {
 
@@ -19,19 +22,28 @@ function App() {
   const [car, setcar] = useState('');
 
   function onSelect(i){
-    setcar(i);
-  }
-
-  function onSubmit(src, dest){
-    const result = shortestPath(graph, src, dest)
-    console.log(result.path);
-    console.log(result.distance);
+    let rate;
+    if(i == 0){
+      rate = 10;
+    }else if(i == 1){
+      rate = 20;
+    }else if(i == 2){
+      rate = 30;
+    }else if(i = 3){
+      rate = 40;
+    }else{
+      rate = 50;
+    }
+    setcar(rate);
   }
 
   return (
-    <div className="App mt-5">
-      <h1 className="m-15 text-center">..Car-Book-Karo..</h1>
-      <form className="col-md-8 mx-auto">
+    <div className="background-container">
+    <div className="App">
+      <h1 className="text">..Car-Book-Karo..</h1>
+      <div className="form-container">
+      <img src={carGraph} alt="Car animation" />
+      <form className="mx-auto">
         <div className="form-group">
           <label for="exampleInputEmail1">Email address</label>
           <input type="email" className="form-control" onChange={(e) => {setemail(e.target.value)}} placeholder="Enter email"/>
@@ -39,11 +51,11 @@ function App() {
         </div>
         <div className="form-group">
           <label for="exampleInputEmail1">Source</label>
-          <input type="email" className="form-control" onChange={(e) => {setsrc(e.target.value)}} placeholder="Enter Source Node"/>
+          <input type="text" className="form-control" onChange={(e) => {setsrc(e.target.value)}} placeholder="Enter Source Node"/>
         </div>
         <div className="form-group">
           <label for="exampleInputEmail1">Destination</label>
-          <input type="email" className="form-control" onChange={(e) => {setdest(e.target.value)}} placeholder="Enter Destination Node"/>
+          <input type="text" className="form-control" onChange={(e) => {setdest(e.target.value)}} placeholder="Enter Destination Node"/>
         </div>
         <ul>
           <li>
@@ -67,10 +79,12 @@ function App() {
             <label className='text-primary' htmlFor="op5">SUV (Rs. 50/min) </label>
           </li>
         </ul>
-        <button type="submit" className="btn btn-primary" onClick={() => onSubmit(src, dest)}>Submit</button>
+        
       </form>
+      </div>
 
-      <shortestPath graph={graph} src={src} dest={dest} />
+      <ShortestPath graph={graph} src={src} dest={dest} car={car}/>
+    </div>
     </div>
   );
 }

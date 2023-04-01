@@ -1,5 +1,92 @@
 .App {
   text-align: center;
+  max-width: 800px;
+  margin: 0 auto;
+  background-color: black;
+}
+
+* {
+  background-image: url('../public/cool-backgroundd.png');
+  background-size: cover;
+  animation: background-scroll 60s linear infinite;
+}
+@keyframes background-scroll {
+  from {
+    background-position: 0 0;
+  }
+  to {
+    background-position: -2000px 0;
+  }
+}
+
+.text{
+  font-family: 'Times New Roman', Times, serif;
+}
+
+.m-15 {
+  margin: 30px;
+}
+
+.form-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+.form-container img {
+
+  max-width: 50%;
+  margin-right: 2rem;
+}
+
+.form-container form {
+  max-width: 70%;
+}
+
+.form-control {
+  background-color: transparent;
+  opacity: 1;
+  border: 1px solid black;
+  padding: 20px;
+  border: none;
+  border-radius: 0;
+  border-bottom: 1px solid #ccc;
+  padding: 10px;
+  margin-bottom: 3px;
+  font-size: 18px;
+}
+
+.form-group label {
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 1px;
+}
+
+ul {
+  list-style: none;
+  margin-bottom: 20px;
+}
+
+li {
+  display: inline-block;
+  margin-right: 30px;
+}
+
+input[type="radio"] {
+  margin-right: 10px;
+}
+
+.btn-primary {
+  background-color: #007bff;
+  border-color: #007bff;
+  padding: 10px 40px;
+  font-size: 18px;
+}
+
+.text-primary {
+  color: #007bff;
 }
 
 .App-logo {
