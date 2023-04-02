@@ -1,5 +1,5 @@
 import React from 'react'
-import './Modal.css'
+import './css/Modal.css'
 
 
 function Modal ({showModal, setShowModal, call, src, dest, car}) {

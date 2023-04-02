@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
-import './App.css';
+import './css/App.css';
 import ShortestPath from './Path';
-import carGraph from './graphh.png';
+import carGraph from './img/graphh.png';
 import carModel from './img/car .png'
 import wheel from './img/wheel.png'
 

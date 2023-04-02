@@ -1,7 +1,7 @@
 import React, {useState } from 'react'
 import axios from 'axios';
 import Modal from './Modal';
-import './App.css';
+import './css/App.css';
 
 const Path = ({ graph, src, dest, car, email}) => {
   const [call, setCall] = useState(null)
