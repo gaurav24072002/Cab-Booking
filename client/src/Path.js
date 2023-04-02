@@ -86,8 +86,8 @@ const Path = ({ graph, src, dest, car, email}) => {
     const price = call?.distance*car;
     const message = (
       <div className='Message' >
-        <div>Your Ride Path is as followes : {path}</div>
-        <div>Your Minimum time Required is : {time} minuites</div>
+        <div>Your shortest ride Path is as followes : {path}</div>
+        <div>Your Minimum time Required to reach destination is : {time} minuites</div>
         <div>The Price for Your Ride will be : Rs.{price}</div>
       </div>
     )
@@ -144,11 +144,15 @@ const Path = ({ graph, src, dest, car, email}) => {
       <button id='submit' className='btn btn-primary' onClick={() => handleSubmit(graph, src, dest)}>Submit</button>
       {msg && (
         <div>
-          {msg}
-          <button id='submit' className='btn btn-success' onClick={() => handleBook(email, src, dest, car)}>Book Now</button>
-          {showModal && (
-            <Modal call={call} src={src} dest={dest} car={car} showModal={showModal} setShowModal={setShowModal} ></Modal>
-          )}
+          <div className='messages'>
+            {msg}
+          </div>
+          <div>
+          <button id='booknow' className='btn btn-success' onClick={() => handleBook(email, src, dest, car)}>Book Now</button>
+            {showModal && (
+              <Modal call={call} src={src} dest={dest} car={car} showModal={showModal} setShowModal={setShowModal} ></Modal>
+            )}
+          </div>
         </div>
       )}
     </div>

@@ -1,15 +1,20 @@
+* {
+  overflow-x: hidden;
+  overflow-y: hidden;
+}
+
 .App {
   text-align: center;
   max-width: 800px;
   margin: 0 auto;
-  background-color: black;
+  background-color: transparent;
 }
 
-* {
+/* * {
   background-image: url('../public/cool-backgroundd.png');
   background-size: cover;
   animation: background-scroll 60s linear infinite;
-}
+} */
 
 @keyframes background-scroll {
   from {
@@ -21,7 +26,12 @@
 }
 
 .text {
-  font-family: 'Times New Roman', Times, serif;
+  font-family: "Luckiest Guy", cursive;
+  background: black;
+  color: white;
+  border-radius: 20px;
+  padding: 4px;
+  margin-top: 8px;
 }
 
 .m-15 {
@@ -42,14 +52,16 @@
   margin-right: 2rem;
 }
 
-.form-container img:hover {
-  transform: scale(1.1);
-}
+/* .form-container img:hover {
+  transform: scale(1);
+} */
 
 .form-container form {
+  font-family: "Bree Serif", serif;
   max-width: 70%;
-    border-style: dashed;
-    border-radius: 7px;
+  height: 380px;
+  border-style: dashed;
+  border-radius: 7px;
 }
 
 .form-control {
@@ -92,10 +104,13 @@ input[type="radio"] {
   font-size: 18px;
 }
 
-.text-primary {
-  color: #007bff;
+.list {
+  color: black;
 }
 
+.text-primary {
+  color: #000000;
+}
 
 .App-logo {
   height: 40vmin;
@@ -123,15 +138,23 @@ input[type="radio"] {
   color: #61dafb;
 }
 
-.Message{
+.Message {
   margin: 7px 20px;
-  font-family: Georgia, 'Times New Roman', Times, serif;
+  font-family: Georgia, "Times New Roman", Times, serif;
   font-size: large;
+  color: white;
+  background: black;
+  border-radius: 48%;
+  border-style: dotted;
+  border-color: white;
 }
 
-
 #submit {
-  margin-top: 10px;
+  font-family: "Bree Serif", serif;
+  margin-top: 8px;
+  font-size: medium;
+  padding: 8px 40px;
+  background: black;
 }
 
 @keyframes App-logo-spin {
@@ -140,5 +163,217 @@ input[type="radio"] {
   }
   to {
     transform: rotate(360deg);
+  }
+}
+
+.road {
+  width: 500%;
+  height: 200px;
+  background: url(./img/road.jpg);
+  background-size: cover;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: -1;
+  animation: road 5s linear infinite;
+  margin: auto;
+  opacity: 0.7;
+}
+@keyframes road {
+  0% {
+    transform: translateX(0px);
+  }
+  100% {
+    transform: translateX(-3500px);
+  }
+}
+.city {
+  width: 500%;
+  height: 250px;
+  background: url(./img/city.png);
+  position: absolute;
+  bottom: 200px;
+  left: 0;
+  right: 0;
+  z-index: -1;
+  animation: city 20s linear infinite;
+  opacity: 0.2;
+}
+@keyframes city {
+  0% {
+    transform: translateX(0px);
+  }
+  100% {
+    transform: translateX(-1400px);
+  }
+}
+.car {
+  width: 600px;
+  position: absolute;
+  left: 0%;
+  bottom: 9px;
+  z-index: -1;
+  opacity: 0.7;
+  overflow-y: hidden;
+}
+.car .car-runing {
+  width: 100%;
+  transform: translateY(-1px);
+  animation: car 1s ease-in infinite;
+}
+@keyframes car {
+  0% {
+    transform: translateY(-1px);
+  }
+  50% {
+    transform: translateY(1px);
+  }
+  100% {
+    transform: translateY(-1px);
+  }
+}
+.wheel {
+  width: 90px;
+  position: absolute;
+  top: 139px;
+  left: 105px;
+  animation: wheel 1s linear infinite;
+}
+@keyframes wheel {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+.first {
+  width: 90px;
+  position: absolute;
+  top: 139px;
+  left: 407px;
+}
+/* .author-name{
+  text-align: center;
+  border: 3px solid #000;
+  width: 374px;
+  margin: auto;
+  margin-top: 50px;
+  letter-spacing: 2px;
+  word-spacing: 2px;
+  font-family: cursive;
+  padding: 10px 15px;
+  font-weight: bold;
+} */
+
+.bird {
+  background-image: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/174479/bird-cells-new.svg);
+  background-size: auto 100%;
+  width: 88px;
+  height: 125px;
+  will-change: background-position;
+  animation-name: fly-cycle;
+  animation-timing-function: steps(10);
+  animation-iteration-count: infinite;
+}
+.bird--one {
+  animation-duration: 1s;
+  animation-delay: -0.5s;
+}
+.bird--two {
+  animation-duration: 0.9s;
+  animation-delay: -0.75s;
+}
+.bird--three {
+  animation-duration: 1.25s;
+  animation-delay: -0.25s;
+}
+.bird--four {
+  animation-duration: 1.1s;
+  animation-delay: -0.5s;
+}
+.bird-container {
+  position: absolute;
+  top: 5%;
+  left: -10%;
+  z-index: -1;
+  transform: scale(0) translateX(-10vw);
+  will-change: transform;
+  animation-name: fly-right-one;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+}
+.bird-container--one {
+  animation-duration: 15s;
+  animation-delay: 0;
+}
+.bird-container--two {
+  animation-duration: 16s;
+  animation-delay: 1s;
+}
+.bird-container--three {
+  animation-duration: 14.6s;
+  animation-delay: 9.5s;
+}
+.bird-container--four {
+  animation-duration: 16s;
+  animation-delay: 10.25s;
+}
+@keyframes fly-cycle {
+  100% {
+    background-position: -900px 0;
+  }
+}
+@keyframes fly-right-one {
+  0% {
+    transform: scale(0.3) translateX(-10vw);
+  }
+  10% {
+    transform: translateY(2vh) translateX(10vw) scale(0.4);
+  }
+  20% {
+    transform: translateY(0vh) translateX(30vw) scale(0.5);
+  }
+  30% {
+    transform: translateY(4vh) translateX(50vw) scale(0.6);
+  }
+  40% {
+    transform: translateY(2vh) translateX(70vw) scale(0.6);
+  }
+  50% {
+    transform: translateY(0vh) translateX(90vw) scale(0.6);
+  }
+  60% {
+    transform: translateY(0vh) translateX(110vw) scale(0.6);
+  }
+  100% {
+    transform: translateY(0vh) translateX(110vw) scale(0.6);
+  }
+}
+@keyframes fly-right-two {
+  0% {
+    transform: translateY(-2vh) translateX(-10vw) scale(0.5);
+  }
+  10% {
+    transform: translateY(0vh) translateX(10vw) scale(0.4);
+  }
+  20% {
+    transform: translateY(-4vh) translateX(30vw) scale(0.6);
+  }
+  30% {
+    transform: translateY(1vh) translateX(50vw) scale(0.45);
+  }
+  40% {
+    transform: translateY(-2.5vh) translateX(70vw) scale(0.5);
+  }
+  50% {
+    transform: translateY(0vh) translateX(90vw) scale(0.45);
+  }
+  51% {
+    transform: translateY(0vh) translateX(110vw) scale(0.45);
+  }
+  100% {
+    transform: translateY(0vh) translateX(110vw) scale(0.45);
   }
 }

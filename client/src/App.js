@@ -2,6 +2,8 @@ import React, {useState} from 'react';
 import './App.css';
 import ShortestPath from './Path';
 import carGraph from './graphh.png';
+import carModel from './img/car .png'
+import wheel from './img/wheel.png'
 
 
 function App() {
@@ -37,8 +39,30 @@ function App() {
   }
 
   return (
-    <div className="background-container">
-    <div className="App">
+    <>
+      <div className="container">
+      <div className="author-name">
+      
+
+
+      <div className="container">
+        <div className="bird-container bird-container--one">
+          <div className="bird bird--one" />
+        </div>
+        <div className="bird-container bird-container--two">
+          <div className="bird bird--two" />
+        </div>
+        <div className="bird-container bird-container--three">
+          <div className="bird bird--three" />
+        </div>
+        <div className="bird-container bird-container--four">
+          <div className="bird bird--four" />
+        </div>
+      </div>
+
+      
+      
+      <div className="App">
       <h1 className="text">..Car-Book-Karo..</h1>
       <div className="form-container">
       <img src={carGraph} alt="Car animation" />
@@ -56,26 +80,26 @@ function App() {
           <label for="exampleInputEmail1">Destination</label>
           <input type="text" className="form-control" onChange={(e) => {setdest(e.target.value)}} placeholder="Enter Destination Node"/>
         </div>
-        <ul>
+        <ul className='list'>
           <li>
             <input type="radio" value={false} name="options" id='op1' onChange={() => onSelect(0)}/>
-            <label className='text-primary' htmlFor="op1">Micro (Rs. 10/min) </label>
+            <label htmlFor="op1">Micro (Rs. 10/min) </label>
           </li>
           <li>
             <input type="radio" value={false} name="options" id='op2' onChange={() => onSelect(1)}/>
-            <label className='text-primary' htmlFor="op2">Mini (Rs. 20/min) </label>
+            <label htmlFor="op2">Mini (Rs. 20/min) </label>
           </li>
           <li>
             <input type="radio" value={false} name="options" id='op3' onChange={() => onSelect(2)}/>
-            <label className='text-primary' htmlFor="op3">Sedan (Rs. 30/min) </label>
+            <label htmlFor="op3">Sedan (Rs. 30/min) </label>
           </li>
           <li>
             <input type="radio" value={false} name="options" id='op4' onChange={() => onSelect(3)}/>
-            <label className='text-primary' htmlFor="op4">Sedan Prime (Rs. 40/min) </label>
+            <label htmlFor="op4">Sedan Prime (Rs. 40/min) </label>
           </li>
           <li>
             <input type="radio" value={false} name="options" id='op5' onChange={() => onSelect(4)}/>
-            <label className='text-primary' htmlFor="op5">SUV (Rs. 50/min) </label>
+            <label htmlFor="op5">SUV (Rs. 50/min) </label>
           </li>
         </ul>
         
@@ -84,7 +108,20 @@ function App() {
 
       <ShortestPath graph={graph} src={src} dest={dest} car={car} email={email}/>
     </div>
+
+
+
+      </div>
+      <div className="road" />
+      <div className="city" />
+      <div className="car">
+        <img src={carModel} alt="Car" className='car-runing' width={'600px'} />
+        <img src={wheel} alt="Wheel" className='wheel first' />
+        <img src={wheel} alt="Wheel" className='wheel back' />
+      </div>
     </div>
+
+    </>
   );
 }
 
