@@ -8,6 +8,7 @@ import wheel from './img/wheel.png'
 
 function App() {
 
+  // Created The Graph as per the given diagram
   const graph = {
     A: { B: 5, C: 7 },
     B: { A: 5, D: 15, E: 20 },
@@ -17,11 +18,13 @@ function App() {
     F: { D: 20, E: 10 },
   };
 
+  // All useState Hooks are present Here
   const [email, setemail] = useState('');
   const [src, setsrc] = useState('');
   const [dest, setdest] = useState('');
   const [car, setcar] = useState('');
 
+  // Function running when we select a perticular radio button
   function onSelect(i){
     let rate;
     if(i === 0){
@@ -43,8 +46,6 @@ function App() {
       <div className="container">
       <div className="author-name">
       
-
-
       <div className="container">
         <div className="bird-container bird-container--one">
           <div className="bird bird--one" />
@@ -60,8 +61,6 @@ function App() {
         </div>
       </div>
 
-      
-      
       <div className="App">
       <h1 className="text">Car Book Karo</h1>
       <div className="form-container">
@@ -102,14 +101,10 @@ function App() {
             <label htmlFor="op5">SUV (Rs. 50/min) </label>
           </li>
         </ul>
-        
       </form>
       </div>
-
       <ShortestPath graph={graph} src={src} dest={dest} car={car} email={email}/>
     </div>
-
-
 
       </div>
       <div className="road" />

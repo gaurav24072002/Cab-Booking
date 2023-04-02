@@ -4,11 +4,14 @@ import Modal from './Modal';
 import './css/App.css';
 
 const Path = ({ graph, src, dest, car, email}) => {
+
+  // All the useState Hooks are Here
   const [call, setCall] = useState(null)
   const [booked, setBooked] = useState([false, false, false, false, false]);
   const [msg, setMsg] = useState(null);
   const [showModal, setShowModal] = useState(false);
  
+  // Dijakstras Algorithm Applied Here
   function calculation(graph, source, destination) {
     // Initialize distances to all nodes as Infinity except the source, which is 0
     const distances = Object.keys(graph).reduce((acc, node) => {
@@ -72,7 +75,7 @@ const Path = ({ graph, src, dest, car, email}) => {
     };
   }
 
-
+  // Submit Button Functioning Here
   const handleSubmit = (graph, src, dest ) => {
     if(call?.distance === 0 || call?.path === ''){
       alert("Fill the form")
@@ -80,23 +83,21 @@ const Path = ({ graph, src, dest, car, email}) => {
     }
     setCall(calculation(graph,src,dest));
     const path = call?.path;
-    console.log(typeof(path))
     const time = call?.distance;
-    console.log(typeof(time))
     const price = call?.distance*car;
     const message = (
       <div className='Message' >
-        <div>Your shortest ride Path is as followes : {path}</div>
-        <div>Your Minimum time Required to reach destination is : {time} minuites</div>
+        <div>Your shortest ride Path is as follows : {path}</div>
+        <div>Your Minimum time Required to reach destination is : {time} minutes</div>
         <div>The Price for Your Ride will be : Rs.{price}</div>
       </div>
     )
     setMsg(message);
   }
 
+  // Book Now Button Functioning Here
   const handleBook = (email, src, dest, car) => {
     const index = (car/10 - 1);
-
     var cr = "";
     if(car === 10){
       cr = "Micro";

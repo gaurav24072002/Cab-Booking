@@ -1,14 +1,13 @@
 * {
   overflow-x: hidden;
   overflow-y: hidden;
-  
 }
 
 body {
   /* background-color: #111; */
   /* background-image:  linear-gradient(to top right, rgb(255, 255, 99), rgb(210, 210, 210) 70%); */
   /* background: radial-gradient(circle at top right, #ffd200 1%, #fff532 3%, #ffde7c 70%, #f8ffb1 90%); */
-  background-image: url('../img/sky1.jpg');
+  background-image: url("../img/sky1.jpg");
   z-index: -1;
   background-size: cover;
 }
@@ -19,12 +18,6 @@ body {
   margin: 0 auto;
   background-color: transparent;
 }
-
-/* * {
-  background-image: url('../public/cool-backgroundd.png');
-  background-size: cover;
-  animation: background-scroll 60s linear infinite;
-} */
 
 @keyframes background-scroll {
   from {
@@ -62,10 +55,6 @@ body {
   margin-right: 2rem;
 }
 
-/* .form-container img:hover {
-  transform: scale(1);
-} */
-
 .form-container form {
   font-family: "Bree Serif", serif;
   max-width: 70%;
@@ -73,7 +62,7 @@ body {
   border-style: dashed;
   border-radius: 7px;
   background: white;
-    opacity: 0.8;
+  opacity: 0.8;
 }
 
 .form-control {
@@ -179,6 +168,8 @@ input[type="radio"] {
   }
 }
 
+
+/* Car Segment Here */
 .road {
   width: 500%;
   height: 200px;
@@ -267,19 +258,10 @@ input[type="radio"] {
   top: 139px;
   left: 407px;
 }
-/* .author-name{
-  text-align: center;
-  border: 3px solid #000;
-  width: 374px;
-  margin: auto;
-  margin-top: 50px;
-  letter-spacing: 2px;
-  word-spacing: 2px;
-  font-family: cursive;
-  padding: 10px 15px;
-  font-weight: bold;
-} */
 
+
+
+/* Birds Segment */
 .bird {
   background-image: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/174479/bird-cells-new.svg);
   background-size: auto 100%;
