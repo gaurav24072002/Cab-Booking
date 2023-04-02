@@ -12,7 +12,8 @@ app.use(express.json())
 app.use('/', MainRouter);
 
 const Mongourl='mongodb://localhost:27017/cabKaro'                     
-mongoose.connect(Mongourl).then( ()=>
+const MongoOnline='mongodb+srv://gaurav02maheshwari:LjscD8OzxbQzqDhX@cluster0.tzb0m64.mongodb.net/cabKaro?retryWrites=true&w=majority'
+mongoose.connect(MongoOnline || Mongourl).then( ()=>
 console.log("Connected to mongo Successful")
 ).catch((e)=> {
     console.log("Error : " + e);

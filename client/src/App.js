@@ -63,7 +63,7 @@ function App() {
       
       
       <div className="App">
-      <h1 className="text">..Car-Book-Karo..</h1>
+      <h1 className="text">Car Book Karo</h1>
       <div className="form-container">
       <img src={carGraph} alt="Car animation" />
       <form className="mx-auto">

@@ -1,6 +1,16 @@
 * {
   overflow-x: hidden;
   overflow-y: hidden;
+  
+}
+
+body {
+  /* background-color: #111; */
+  /* background-image:  linear-gradient(to top right, rgb(255, 255, 99), rgb(210, 210, 210) 70%); */
+  /* background: radial-gradient(circle at top right, #ffd200 1%, #fff532 3%, #ffde7c 70%, #f8ffb1 90%); */
+  background-image: url('./img/sky1.jpg');
+  z-index: -1;
+  background-size: cover;
 }
 
 .App {
@@ -62,6 +72,8 @@
   height: 380px;
   border-style: dashed;
   border-radius: 7px;
+  background: white;
+    opacity: 0.8;
 }
 
 .form-control {
@@ -147,6 +159,7 @@ input[type="radio"] {
   border-radius: 48%;
   border-style: dotted;
   border-color: white;
+  padding: 10px;
 }
 
 #submit {
@@ -175,7 +188,7 @@ input[type="radio"] {
   bottom: 0;
   left: 0;
   right: 0;
-  z-index: -1;
+  z-index: -2;
   animation: road 5s linear infinite;
   margin: auto;
   opacity: 0.7;
@@ -198,7 +211,7 @@ input[type="radio"] {
   right: 0;
   z-index: -1;
   animation: city 20s linear infinite;
-  opacity: 0.2;
+  opacity: 0.4;
 }
 @keyframes city {
   0% {

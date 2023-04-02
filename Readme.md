@@ -44,6 +44,25 @@ npm install // To Install All The Dependencies/Library
 node index // To run the index.js file
 ```
 
+## Tasks Given By Scaler :
+| Tasks | Done[&check;] |
+| --- | ---|
+| - Create your app’s frontend as a SPA. | &check; |
+| - The system should be able to manage cab booking | &check; |
+| - The user should be able to book a cab by providing the user's email, source, and destination. | &check; |
+| - There are a total of 5 cabs with different pricing. (Price/minute) | &check; |
+| - The system should provide the estimated cost depending on the cab chosen and the time taken to reach the destination. | &check; |
+| - The system should be able to track the cab booking | &check; |
+| - Users should be able to view and edit the cabs and their pricing. | &check; |
+| - Create a proper ReadME file describing the functioning of your project | &check; |
+| - Responsive design. | &check; |
+| - The system should be able to send email notifications to the user's email id at the time of booking | &check; |
+| - Upload your code on GitHub or any similar service and send us the link. | &check; |
+Make sure that the repository is marked public.| &check; |
+| - you can deploy your app using AWS/Heroku or any other service and send us a link. |  |
+
+## GIF OF My Project :
+![]()
 
 
 >Thank You So Much 
