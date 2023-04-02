@@ -59,10 +59,9 @@ node index // To run the index.js file
 | - The system should be able to send email notifications to the user's email id at the time of booking | &check; |
 | - Upload your code on GitHub or any similar service and send us the link. | &check; |
 Make sure that the repository is marked public.| &check; |
-| - you can deploy your app using AWS/Heroku or any other service and send us a link. |  |
+| - you can deploy your app using AWS/Heroku or any other service and send us a link. | &check; |
 
-## GIF OF My Project :
-![]()
+## Visuals OF My Project :
 
 
 >Thank You So Much 
