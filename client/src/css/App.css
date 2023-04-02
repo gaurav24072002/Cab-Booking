@@ -105,6 +105,8 @@ li {
 
 input[type="radio"] {
   margin-right: 10px;
+  position: relative;
+  top: -7px;
 }
 
 .list {
@@ -156,6 +158,8 @@ input[type="radio"] {
   font-size: medium;
   padding: 8px 40px;
   background: black;
+  position: relative;
+  right: -170px;
 }
 
 #submit:hover{
