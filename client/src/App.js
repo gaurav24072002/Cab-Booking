@@ -68,16 +68,16 @@ function App() {
       <form className="mx-auto">
         <div className="form-group">
           <label for="exampleInputEmail1">Email address</label>
-          <input type="email" className="form-control" onChange={(e) => {setemail(e.target.value)}} placeholder="Enter email"/>
+          <input type="email" className="form-control" onChange={(e) => {setemail(e.target.value)}} placeholder="Enter email" required/>
           <small id="emailHelp" className="form-text text-muted">We'll never share your email with anyone else.</small>
         </div>
         <div className="form-group">
           <label for="exampleInputEmail1">Source</label>
-          <input type="text" className="form-control" onChange={(e) => {setsrc(e.target.value)}} placeholder="Enter Source Node"/>
+          <input type="text" className="form-control" onChange={(e) => {setsrc(e.target.value)}} placeholder="Enter Source Node eg. A,B..F" required/>
         </div>
         <div className="form-group">
           <label for="exampleInputEmail1">Destination</label>
-          <input type="text" className="form-control" onChange={(e) => {setdest(e.target.value)}} placeholder="Enter Destination Node"/>
+          <input type="text" className="form-control" onChange={(e) => {setdest(e.target.value)}} placeholder="Enter Destination Node eg. eg. A,B..F" required/>
         </div>
         <ul className='list'>
           <li>

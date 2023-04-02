@@ -1,4 +1,4 @@
-import React, {useState } from 'react'
+import React, {useState, useEffect } from 'react'
 import axios from 'axios';
 import Modal from './Modal';
 import './css/App.css';
@@ -10,6 +10,7 @@ const Path = ({ graph, src, dest, car, email}) => {
   const [booked, setBooked] = useState([false, false, false, false, false]);
   const [msg, setMsg] = useState(null);
   const [showModal, setShowModal] = useState(false);
+  const [isFormValid, setIsFormValid] = useState(false);
  
   // Dijakstras Algorithm Applied Here
   function calculation(graph, source, destination) {
@@ -140,9 +141,17 @@ const Path = ({ graph, src, dest, car, email}) => {
     
   }
 
+  useEffect(() => {
+    if (src.trim() !== '' && email.trim() !== '' && dest.trim() !== '' && car !== '') {
+      setIsFormValid(true);
+    } else {
+      setIsFormValid(false);
+    }
+  }, [src, dest, car, email]);
+
   return (
     <div>
-      <button id='submit' className='btn btn-primary' onClick={() => handleSubmit(graph, src, dest)}>Submit</button>
+      <button id='submit' className='btn btn-primary' disabled={!isFormValid} onClick={() => handleSubmit(graph, src, dest)}>Submit</button>
       {msg && (
         <div>
           <div className='messages'>
