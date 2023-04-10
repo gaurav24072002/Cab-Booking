@@ -18,12 +18,11 @@ route.post('/', (req, res) => {
     console.log(req.body)
     let register=new User(req.body)
     register.save()
-    .then((err, docs) =>{
-        if(err){
-            res.send(err)
-        }else{
-            res.send("Successfully Booked your Ride", req.body);
-        }
+    .then(docs =>{
+        res.send(`Successfully Booked your Ride : ${docs}`);
+    })
+    .catch(err=>{
+        res.status(500).send({ error: err.message });
     })
 
     const mailOptions = {

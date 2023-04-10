@@ -69,15 +69,18 @@ const Path = ({ graph, src, dest, car, email}) => {
     }
     path.reverse();
 
+    const pathString = path.join(' -> ');
+
     // Return an object containing the shortest path and its distance
     return {
-      path: path,
+      path: pathString,
       distance: distances[destination],
     };
   }
 
   // Submit Button Functioning Here
-  const handleSubmit = (graph, src, dest ) => {
+  const handleSubmit = (graph, src, dest) => {
+    console.log("onClick working")
     if(call?.distance === 0 || call?.path === ''){
       alert("Fill the form")
       return;
@@ -129,7 +132,7 @@ const Path = ({ graph, src, dest, car, email}) => {
     .then(resp=>{
       if(resp){
         setShowModal(true);
-        console.log(resp)
+        console.log(resp.data)
         const newBooked = [...booked]
         newBooked[index] = true;
         setBooked(newBooked);
@@ -149,6 +152,15 @@ const Path = ({ graph, src, dest, car, email}) => {
     }
   }, [src, dest, car, email]);
 
+  const Modalprop = {
+    call : call,
+    src : src,
+    dest : dest,
+    car : car,
+    showModal : showModal,
+    setShowModal : setShowModal
+  }
+
   return (
     <div>
       <button id='submit' className='btn btn-primary' disabled={!isFormValid} onClick={() => handleSubmit(graph, src, dest)}>Submit</button>
@@ -160,7 +172,7 @@ const Path = ({ graph, src, dest, car, email}) => {
           <div>
           <button id='booknow' className='btn btn-success' onClick={() => handleBook(email, src, dest, car)}>Book Now</button>
             {showModal && (
-              <Modal call={call} src={src} dest={dest} car={car} showModal={showModal} setShowModal={setShowModal} ></Modal>
+              <Modal {...Modalprop} ></Modal>
             )}
           </div>
         </div>
